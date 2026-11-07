@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .space {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 1;
+        }
+        /* Estrellas estelares */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        /* Contenedor de mensajes estelares automáticos */
+        .message-box {
+            position: absolute;
+            width: 85%;
+            max-width: 500px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(10, 10, 20, 0.9);
+            border: 2px solid #ff69b4;
+            box-shadow: 0 0 35px rgba(255, 20, 147, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            color: #ffe4e1;
+            text-align: center;
+            z-index: 10;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            white-space: pre-line;
+            opacity: 0;
+            pointer-events: none;
+            animation: showMessage 9s infinite;
+        }
+        @keyframes showMessage {
+            0% { opacity: 0; transform: translate(-50%, -40%) scale(0.8); }
+            10% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            85% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="space" id="space"></div>
+
+    <!-- 6 Mensajes rotando automáticamente de manera continua -->
+    <div class="message-box" style="animation-delay: 0s;">¡Felices 21 años! 🌟
+
+Hoy me puse a pensar que, por más que vivamos lejos, la luna que ves tú allá es la misma que veo yo acá, un pensamiento que me da paz. Que cada noche de este año recuerdes que tu luz es única y llega más lejos de lo que imaginas.
+
+¡Felicidades y disfruta mucho tu día!</div>
+
+    <div class="message-box" style="animation-delay: 9s;">¡Felices 21 años! 🌙
+
+A veces me detengo a pensar en cómo los años pasan y, aunque los kilómetros nos separen hoy, sé que el tiempo nos sigue encontrando en los mismos recuerdos y en las ganas de vernos crecer. Brindo contigo desde la distancia.
+
+¡Disfruta cada segundo de tu día!</div>
+
+    <div class="message-box" style="animation-delay: 18s;">¡Muy feliz cumpleaños! ✨
+
+Estaba pensando en ti y en cómo, a pesar de la distancia, hay cosas que no cambian: nuestra complicidad sigue intacta. Que este año de vida te regale risas imprevistas, aprendizajes bonitos y esa paz que te hace sentir en casa.
+
+¡Pásala increíble y come mucho pastel por mí!</div>
+
+    <div class="message-box" style="animation-delay: 27s;">¡Felices 21! 🌟
+
+Qué bonito es verte llegar a esta edad con tanta luz y tantas ganas de comerte el mundo. Que este año te atrevas a lo nuevo, que rompas tus propios límites y que recuerdes que hay alguien muy orgulloso de ti aplaudiéndote desde lejos.
+
+¡Felicidades y que sea tu mejor año!</div>
+
+    <div class="message-box" style="animation-delay: 36s;">¡Felices 21 años! 🌌
+
+Hoy el día se siente diferente, y aunque me encantaría estar ahí, la distancia se siente un poquito más corta sabiendo cuánto te quiero. Que este nuevo año te sorprenda con momentos inolvidables y abrazos que curen cualquier ausencia.
+
+¡Que tengas un día tan bonito como tú!</div>
+
+    <div class="message-box" style="animation-delay: 45s;">¡Muchas felicidades en tus 21! ✨
+
+Estaba pensando en lo rápido que pasa el tiempo y en lo orgulloso(a) que estoy de la persona en la que te has convertido. Brindo por ti, por tus sueños y por todo lo bonito que está por venir a tu vida.
+
+¡Disfruta al máximo tu día, te mando un abrazo gigante!</div>
+
+    <script>
+        // Generar estrellas de fondo automáticamente
+        const space = document.getElementById('space');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = (Math.random() * 2) + 's';
+            space.appendChild(star);
+        }
+    </script>
+</body>
+</html>
